@@ -152,6 +152,14 @@ function wysiwyg_imageupload_update_6201() {
   return array();
 }
 
+function wysiwyg_imageupload_update_6210() {
+  $value = variable_get('wysiwyg_imageupload_imgstyles', FALSE);
+  if ($value !== FALSE) {
+    variable_set('wysiwyg_imageupload_imgstyles', str_replace('\n\r', "\n\r", $value));
+  }
+  return array();
+}
+
 function wysiwyg_imageupload_requirements($phase) {
   $requirements = array();
   if ($phase == 'runtime') {
